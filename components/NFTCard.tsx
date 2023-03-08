@@ -1,5 +1,4 @@
 import { convertIPFSLink } from "@/utils";
-import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 
 interface NFTCardProps {
@@ -49,8 +48,8 @@ const NFTCard = ({
     >
       <figure className="card w-64 h-64 md:w-80 md:h-80 xl:h-90 xl:w-90 bg-base-100 shadow-xl">
         {mediaFormat !== "mp4" ? (
-          <Image
-            className="object-cover"
+          <img
+            className="object-cover w-full h-full"
             src={convertIPFSLink(mediaURL)}
             alt={`${tokenId}-${contractAddress}`}
             fill
@@ -63,10 +62,10 @@ const NFTCard = ({
         )}
       </figure>
       <div className="card-body bg-black rounded-b-2xl">
-        <h2 className="card-title text-xl justify-center">
+        <h2 className="card-title text-sm lg:text-xl justify-center">
           {tokenType === "ERC1155" ? title : contractName}
         </h2>
-        <p className="text-lg">
+        <p className="text-md lg:text-lg">
           {tokenType === "ERC1155" ? `x${balance}` : title}
         </p>
       </div>
