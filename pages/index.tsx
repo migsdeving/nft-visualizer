@@ -36,7 +36,7 @@ export default function Home() {
       <main className=" flex flex-col items-center w-full">
         <form onSubmit={handleSubmit} className="p-10 w-5/6 md:w-1/2 xl:w-1/3">
           <input
-            type="text"
+            type="search"
             placeholder="ETH Address"
             className="input input-bordered input-primary w-full "
             value={input}
