@@ -43,7 +43,7 @@ export default function Home() {
           />
         </form>
         <h1 className="my-10 text-2xl text-white bold">
-          {address}'s NFT Collection...
+          {`${address}'s NFT Collection...`}
         </h1>
 
         {NFTS && (
