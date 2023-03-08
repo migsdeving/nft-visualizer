@@ -4,7 +4,7 @@ import { OwnedNft } from "alchemy-sdk";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-const EXAMPLE_ADDRESS = "0xD64E1F3a2dF4C153F26e7cB79e42673df385d239";
+const EXAMPLE_ADDRESS = "0x8BC110Db7029197C3621bEA8092aB1996D5DD7BE";
 
 export default function Home() {
   const [NFTS, setNFTs] = useState<OwnedNft[]>();

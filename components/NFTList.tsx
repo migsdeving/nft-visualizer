@@ -26,9 +26,9 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
     <div className="flex justify-center p-5">
       <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold rounded-lg">
         {NFTS &&
-          NFTS.map((NFT, index) => {
-            if (NFT.media[0].format)
-              return (
+          NFTS.map(
+            (NFT, index) =>
+              NFT.media[0]?.format && (
                 <NFTCard
                   key={index}
                   setOpenModal={setOpenModal}
@@ -44,9 +44,8 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
                   tokenType={NFT.tokenType}
                   balance={NFT.balance}
                 />
-              );
-          })}
-        {/* modal */}
+              )
+          )}
         {openModal && <Modal {...modalData} setOpenModal={setOpenModal} />}
       </div>
     </div>

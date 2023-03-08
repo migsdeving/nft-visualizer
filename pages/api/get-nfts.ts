@@ -6,10 +6,6 @@ const settings = {
   network: Network.ETH_MAINNET,
 };
 
-const filterUnsupportedENS = (nfts: OwnedNft[]) => {
-  return nfts.filter((nft) => nft.title);
-};
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<OwnedNft[]>
@@ -19,8 +15,7 @@ export default async function handler(
   if (address) {
     const alchemy = new Alchemy(settings);
     const nfts = await alchemy.nft.getNftsForOwner(address as string);
-    const filteredNfts = filterUnsupportedENS(nfts.ownedNfts);
-    res.status(200).json(filteredNfts);
+    res.status(200).json(nfts.ownedNfts);
   }
   res.status(404);
 }
