@@ -17,7 +17,7 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <>
-      <div className="z-30 opacity-1 w-[85vw] h-[60vh] xl:w-[50vw] xl:h-[60vh] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+      <div className="z-30 opacity-1 w-[85vw] h-[60vh] max-h-[90vh] xl:w-[50vw] xl:h-[60vh] fixed top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 ">
         <div className="card bg-base-100 shadow-xl object-cover w-full ">
           <button
             className="absolute top-1 right-1 md:top-2 md:right-2 lg:top-3 lg:right-3 btn btn-circle btn-outline scale-75"
@@ -41,11 +41,10 @@ const Modal = ({
 
           <figure className="px-10 pt-10">
             <img
-              width={500}
-              height={500}
               src={imageURL}
               alt={`${tokenId}-${contractAddress}`}
-              className="rounded-xl"
+              width={200}
+              className="rounded-xl object-contain"
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -55,7 +54,7 @@ const Modal = ({
             ) : (
               <></>
             )}
-            <p className="line-clamp-4 lg:line-clamp-6 w-full text-sm lg:text-lg">
+            <p className="line-clamp-4 w-full text-sm lg:text-md">
               {collectionDescription}
             </p>
             <p className="text-sm lg:text-lg ">

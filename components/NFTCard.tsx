@@ -1,4 +1,5 @@
 import { convertIPFSLink } from "@/utils";
+import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 
 interface NFTCardProps {
@@ -48,10 +49,12 @@ const NFTCard = ({
     >
       <figure className="card w-64 h-64 md:w-80 md:h-80 xl:h-90 xl:w-90 bg-base-100 shadow-xl">
         {mediaFormat !== "mp4" ? (
-          <img
+          <Image
             className="object-cover w-full h-full"
             src={convertIPFSLink(mediaURL)}
             alt={`${tokenId}-${contractAddress}`}
+            placeholder="blur"
+            blurDataURL="/placeholder.webp"
             fill
           />
         ) : (
