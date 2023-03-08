@@ -25,12 +25,12 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
   const [modalData, setModalData] = useState<ModalData>(emptyModal);
   return (
     <div className="flex justify-center ">
-      <div className="grid grid-flow-row grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold rounded-lg">
+      <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold rounded-lg">
         {NFTS &&
           NFTS.map((NFT, index) => (
             <div
               key={index}
-              className="card w-96 bg-base-100 shadow-xl cursor-pointer"
+              className="card w-64 md:w-80 xl:w-90 2xl:w-96 bg-base-100 shadow-xl cursor-pointer transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105  duration-150"
               onClick={() => {
                 setOpenModal(true);
                 setModalData({
@@ -46,7 +46,7 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
                 });
               }}
             >
-              <figure className="card w-96 h-96 bg-base-100 shadow-xl">
+              <figure className="card w-64 h-64 md:w-80 md:h-80 xl:h-90 2xl:h-96 xl:w-90 2xl:w-96 bg-base-100 shadow-xl">
                 {NFT.media[0].format !== "mp4" ? (
                   <Image
                     className="object-cover"

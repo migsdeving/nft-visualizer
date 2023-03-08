@@ -36,12 +36,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="m-5 flex flex-col items-center">
-        <form onSubmit={handleSubmit}>
+      <main className=" flex flex-col items-center w-full">
+        <form onSubmit={handleSubmit} className="p-10 w-5/6 md:w-1/2 xl:w-1/3">
           <input
             type="text"
             placeholder="ETH Address"
-            className="input input-bordered input-primary w-full max-w-2xl m-20"
+            className="input input-bordered input-primary w-full "
             value={input}
             onChange={(event) => setInput(event.target.value)}
           />
