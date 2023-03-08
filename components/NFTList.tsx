@@ -24,10 +24,11 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
   const [modalData, setModalData] = useState<ModalData>(emptyModal);
   return (
     <div className="flex justify-center ">
-      <div className="grid grid-flow-row grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+      <div className="grid grid-flow-row grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold rounded-lg">
         {NFTS &&
-          NFTS.map((NFT) => (
+          NFTS.map((NFT, index) => (
             <div
+              key={index}
               className="card w-96 bg-base-100 shadow-xl cursor-pointer"
               onClick={() => {
                 setOpenModal(true);
@@ -45,14 +46,17 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
               }}
             >
               <figure className="">
-                {NFT.rawMetadata?.image ? (
+                {NFT.media[0].format !== "mp4" ? (
                   <img
                     className="object-cover w-full h-full"
-                    src={convertIPFSLink(NFT.rawMetadata?.image)}
+                    src={convertIPFSLink(NFT.media[0].raw)}
                     alt={`${NFT.tokenId}-${NFT.contract}`}
                   />
                 ) : (
-                  <></>
+                  <video className="object-cover w-full h-full" controls>
+                    <source src={NFT.media[0].raw} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 )}
               </figure>
               <div className="card-body bg-black rounded-b-2xl">
