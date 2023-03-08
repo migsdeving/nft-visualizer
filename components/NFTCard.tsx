@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction } from "react";
 interface NFTCardProps {
   setOpenModal: Dispatch<SetStateAction<boolean>>;
   setModalData: Dispatch<SetStateAction<ModalData>>;
-  contractName: string;
   contractAddress: string;
   title: string;
   description: string;
@@ -15,12 +14,12 @@ interface NFTCardProps {
   mediaURL: string;
   tokenType: string;
   balance: number;
+  contractName?: string;
 }
 
 const NFTCard = ({
   setOpenModal,
   setModalData,
-  contractName,
   contractAddress,
   title,
   description,
@@ -30,6 +29,7 @@ const NFTCard = ({
   mediaURL,
   tokenType,
   balance,
+  contractName,
 }: NFTCardProps) => {
   return (
     <div
@@ -37,7 +37,7 @@ const NFTCard = ({
       onClick={() => {
         setOpenModal(true);
         setModalData({
-          collectionName: contractName,
+          collectionName: contractName || title,
           collectionDescription: description,
           tokenName: title,
           owner: ownerAddress,
