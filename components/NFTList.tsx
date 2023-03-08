@@ -23,7 +23,7 @@ interface NFTListProps {
 const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
   const [modalData, setModalData] = useState<ModalData>(emptyModal);
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center p-5">
       <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold rounded-lg">
         {NFTS &&
           NFTS.map((NFT, index) => {

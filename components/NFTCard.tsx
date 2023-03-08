@@ -33,7 +33,7 @@ const NFTCard = ({
 }: NFTCardProps) => {
   return (
     <div
-      className="card w-64 md:w-80 xl:w-90 2xl:w-96 bg-base-100 shadow-xl cursor-pointer transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105  duration-150"
+      className="card w-64 md:w-80 xl:w-90  bg-base-100 shadow-xl cursor-pointer transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105  duration-150"
       onClick={() => {
         setOpenModal(true);
         setModalData({
@@ -47,7 +47,7 @@ const NFTCard = ({
         });
       }}
     >
-      <figure className="card w-64 h-64 md:w-80 md:h-80 xl:h-90 2xl:h-96 xl:w-90 2xl:w-96 bg-base-100 shadow-xl">
+      <figure className="card w-64 h-64 md:w-80 md:h-80 xl:h-90 xl:w-90 bg-base-100 shadow-xl">
         {mediaFormat !== "mp4" ? (
           <Image
             className="object-cover"

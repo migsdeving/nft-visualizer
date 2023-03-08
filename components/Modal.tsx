@@ -55,7 +55,7 @@ const Modal = ({
             ) : (
               <></>
             )}
-            <p className="line-clamp-4  lg:line-clamp-none w-full text-sm lg:text-lg">
+            <p className="line-clamp-4 lg:line-clamp-6 w-full text-sm lg:text-lg">
               {collectionDescription}
             </p>
             <p className="text-sm lg:text-lg ">
