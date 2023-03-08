@@ -17,10 +17,10 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <>
-      <div className="z-30 opacity-1 w-[50vw] h-[60vh] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+      <div className="z-30 opacity-1 w-[85vw] h-[60vh] xl:w-[50vw] xl:h-[60vh] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
         <div className="card bg-base-100 shadow-xl object-cover w-full ">
           <button
-            className="absolute top-3 right-4 btn btn-circle btn-outline"
+            className="absolute top-1 right-1 md:top-2 md:right-2 lg:top-3 lg:right-3 btn btn-circle btn-outline scale-75"
             onClick={() => setOpenModal(false)}
           >
             <svg
@@ -49,14 +49,16 @@ const Modal = ({
             />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title text-2xl">{collectionName}</h2>
+            <h2 className="card-title text-md lg:text-2xl">{collectionName}</h2>
             {contractAddress !== ENS_CONTRACT_ADRESS ? (
               <p className="text-xl">{tokenName}</p>
             ) : (
               <></>
             )}
-            <p className="text-lg">{collectionDescription}</p>
-            <p className="text-lg">
+            <p className="line-clamp-4  lg:line-clamp-none w-full text-sm lg:text-lg">
+              {collectionDescription}
+            </p>
+            <p className="text-sm lg:text-lg ">
               <b>Owner:</b>{" "}
               <a href={`https://etherscan.io/address/${owner}`} target="_blank">
                 <u>{truncateEthAddress(owner)}</u>
