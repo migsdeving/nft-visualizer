@@ -1,4 +1,5 @@
 import NFTList from "@/components/NFTList";
+import { truncateEthAddress } from "@/utils";
 import { OwnedNft } from "alchemy-sdk";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -42,8 +43,8 @@ export default function Home() {
             onChange={(event) => setInput(event.target.value)}
           />
         </form>
-        <h1 className="my-10 text-2xl text-white bold">
-          {`${address}'s NFT Collection...`}
+        <h1 className="break-words p-10 text:lg xl:text-2xl text-white bold">
+          {`${truncateEthAddress(address)}'s NFT Collection...`}
         </h1>
 
         {NFTS && (
