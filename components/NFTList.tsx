@@ -27,7 +27,7 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
       <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 font-mono text-white text-sm text-center font-bold rounded-lg">
         {NFTS &&
           NFTS.map((NFT, index) => {
-            if (NFT.media[0].format && NFT.contract.name)
+            if (NFT.media[0].format)
               return (
                 <NFTCard
                   key={index}

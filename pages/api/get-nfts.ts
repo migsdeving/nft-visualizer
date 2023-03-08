@@ -1,11 +1,9 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { Alchemy, Network, OwnedNft } from "alchemy-sdk";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-// Optional Config object, but defaults to demo api-key and eth-mainnet.
 const settings = {
-  apiKey: process.env.ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
-  network: Network.ETH_MAINNET, // Replace with your network.
+  apiKey: process.env.ALCHEMY_API_KEY,
+  network: Network.ETH_MAINNET,
 };
 
 const filterUnsupportedENS = (nfts: OwnedNft[]) => {

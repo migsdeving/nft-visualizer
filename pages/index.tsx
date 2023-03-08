@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [NFTS, setNFTs] = useState<OwnedNft[]>();
   const [address, setAddress] = useState(
-    "0x9bE85844800d5985E9ddbE19773B7BFB6dAC3251"
+    "0xf9f0cb4AF8d53E7d6097B16b1C3A2fB357282086"
   );
   const [openModal, setOpenModal] = useState(false);
   const [input, setInput] = useState("");
@@ -42,6 +42,9 @@ export default function Home() {
             onChange={(event) => setInput(event.target.value)}
           />
         </form>
+        <h1 className="my-10 text-2xl text-white bold">
+          {address}'s NFT Collection...
+        </h1>
 
         {NFTS && (
           <NFTList
