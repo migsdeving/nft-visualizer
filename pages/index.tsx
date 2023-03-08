@@ -17,16 +17,12 @@ export default function Home() {
   }
 
   useEffect(() => {
-    console.log("fetching");
-
     fetch(`/api/get-nfts?address=${address}`)
       .then((res) => res.json())
       .then((NFTS) => {
         setNFTs(NFTS);
       });
   }, [address]);
-
-  console.log(NFTS);
 
   return (
     <>
