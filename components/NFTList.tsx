@@ -1,5 +1,6 @@
 import { convertIPFSLink } from "@/utils";
 import { OwnedNft } from "alchemy-sdk";
+import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import Modal from "./Modal";
 
@@ -45,12 +46,13 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
                 });
               }}
             >
-              <figure className="">
+              <figure className="card w-96 h-96 bg-base-100 shadow-xl">
                 {NFT.media[0].format !== "mp4" ? (
-                  <img
-                    className="object-cover w-full h-full"
+                  <Image
+                    className="object-cover"
                     src={convertIPFSLink(NFT.media[0].raw)}
                     alt={`${NFT.tokenId}-${NFT.contract}`}
+                    fill
                   />
                 ) : (
                   <video className="object-cover w-full h-full" controls>

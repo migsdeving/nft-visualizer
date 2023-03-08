@@ -26,7 +26,8 @@ export default function Home() {
       });
   }, [address]);
 
-  useEffect(() => console.log(address));
+  console.log(NFTS);
+
   return (
     <>
       <Head>
