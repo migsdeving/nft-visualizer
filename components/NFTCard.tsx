@@ -1,6 +1,5 @@
 import { convertIPFSLink } from "@/utils";
-import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface NFTCardProps {
   setOpenModal: Dispatch<SetStateAction<boolean>>;
@@ -31,6 +30,7 @@ const NFTCard = ({
   balance,
   contractName,
 }: NFTCardProps) => {
+  const [mediaUnavailable, setMediaUnavailable] = useState(false);
   return (
     <div
       className="card w-64 md:w-80 xl:w-90  bg-base-100 shadow-xl cursor-pointer transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105  duration-150"
@@ -48,18 +48,25 @@ const NFTCard = ({
       }}
     >
       <figure className="card w-64 h-64 md:w-80 md:h-80 xl:h-90 xl:w-90 bg-base-100 shadow-xl">
-        {mediaFormat !== "mp4" ? (
-          <Image
+        {mediaUnavailable ? (
+          <div className="bg-black w-full h-full flex justify-center items-center">
+            {" "}
+            Media Not Available
+          </div>
+        ) : mediaFormat !== "mp4" ? (
+          <img
             className="object-cover w-full h-full"
             src={convertIPFSLink(mediaURL)}
             alt={`${tokenId}-${contractAddress}`}
-            placeholder="blur"
-            blurDataURL="/placeholder.webp"
-            fill
+            onError={() => setMediaUnavailable(true)}
           />
         ) : (
           <video className="object-cover w-full h-full" controls>
-            <source src={mediaURL} type="video/mp4" />
+            <source
+              src={mediaURL}
+              type="video/mp4"
+              onError={() => setMediaUnavailable(true)}
+            />
             Your browser does not support the video tag.
           </video>
         )}

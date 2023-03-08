@@ -47,11 +47,7 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
               );
           })}
         {/* modal */}
-        {openModal ? (
-          <Modal {...modalData} setOpenModal={setOpenModal} />
-        ) : (
-          <></>
-        )}
+        {openModal && <Modal {...modalData} setOpenModal={setOpenModal} />}
       </div>
     </div>
   );

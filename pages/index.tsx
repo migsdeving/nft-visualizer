@@ -12,10 +12,10 @@ export default function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [input, setInput] = useState("");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setAddress(input);
-  }
+  };
 
   useEffect(() => {
     fetch(`/api/get-nfts?address=${address}`)
