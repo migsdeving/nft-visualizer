@@ -36,7 +36,9 @@ const NFTList = ({ NFTS, address, openModal, setOpenModal }: NFTListProps) => {
                   contractName={NFT.contract.name}
                   contractAddress={NFT.contract.address}
                   title={NFT.title}
-                  description={NFT.description}
+                  description={
+                    NFT.contract.openSea?.description || NFT.description
+                  }
                   tokenId={NFT.tokenId}
                   ownerAddress={address}
                   mediaFormat={NFT.media[0].format}
